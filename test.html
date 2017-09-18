@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Some Title</title>
+
+		<meta name="description" content="">
+		<meta name="author" content="Jaakko Luttinen">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/league.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <link rel="stylesheet" href="css/mermaid.dark.css">
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+
+
+          <section>
+              <h2>Flowchart</h2>
+              <div class="mermaid">
+                graph LR
+                  U1(Something here)==>B(Monster);
+                  U2(Also here)==>B;
+                  U3(Foo bar)==>B;
+                  X(John Doe) ==> B;
+                  B ==> Y1(Meaning of life);
+                  B ==> Y2(Trust the force);
+                  B ==> Y3(Nothing to see here);
+                  subgraph Part
+                  U1
+                  U2
+                  U3
+                  subgraph Sub
+                  X
+                  end
+                  end
+                  subgraph Result
+                  Y1
+                  Y2
+                  Y3
+                  end
+              </div>
+          </section>
+
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+    <script src="js/mermaid.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false,
+				progress: false,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true },
+          //{ src: 'plugin/math/math.js', async: true }
+          { src: 'plugin/math-katex/math-katex.js', async: true },
+				]
+			});
+
+      $(document).on("ready", function() {
+          console.log("HELLO");
+          mermaid.initialize(
+              {
+                  startOnLoad:true,
+                  flowchart: {
+                      useMaxWidth:true,
+                      htmlLabels:true
+                  },
+                  cloneCssStyles: true
+              }
+          );
+      });
+    </script>
+	</body>
+</html>
